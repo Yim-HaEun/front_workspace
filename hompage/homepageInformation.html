@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>영화 후기 블로그</title>
+    <title>Haeun-log</title>
     <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
-    
+    <style>
+        audio{
+            display:block;
+            
+            margin:10px auto;
+            max-width: 300px;
+            max-height: 20px;
+            border:2px solid #fff;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            audio::-webkit-media-controls-panel{
+                background-color: #fff;
+                border-radius: none;
+            }
+            audio::-webkit-media-controls-play-button{
+                background-color: #fff;
+                border:2px solid #f08080;
+                border-radius:50%;
+                width:50px;
+                height:50px;
+            }
+    </style>
 </head>
 <body>
     <h2>blog</h2>
     <p>안녕하세요.여기는 블로그입니다 자기소개 끝 </p>
     <header>
-        <h2>  Movie - log  </h2>
+        <h2>  Haeun - log  </h2>
     </header>
 
     <section>
@@ -19,32 +42,21 @@
                 <img src = "IMG_3618.JPG" alt = "프로필" style = "width: 100px; height: 100px;">
                 
                 <br>[프로필]
+                
+                <audio controls>
+                    <source src="./mp3/just-relax-11157.mp3" type="audio/mpeg">
+                    <br>
+                    
+                </audio>
 
-                <li>영화 추천</li>
+                <h5> bgm: just-relax-11157.mp3</h5>
+                
                 <li>영화 후기</li>
+                <li>노래 추천</li>
                 <li>일상 </li>
             </ul>
         </nav>
-        <article>
-            <li class="post"><h1>영화 '중경삼림 '후기</h1>
-                <p>왕가위 감독은 미감이 좋아요<br>노래도 좋습니다.<br>
-                별점 : 4.5 </p>
-                <div class = "comment">
-                    <h3>댓글 창</h3>
-                    <input id = "commentInput" placeholder="댓글 달기">
-                    <button onclick = "addComment()">작성</button>
-                    <div id="comments">
-                        <!--댓글이 표시될 장소-->
-            
-                    </div>
-                </div>                
-            </li>
-            <textarea id = "blogPost" placeholder="게시글 쓰기"></textarea>
-            <button id = "saveButton"> 게시글 작성하기 </button>
-            <ul id="blogPostList"></ul>
-        </article>
-        
-        
+   
     </section> <!--article도 무조건 ! section 안에 넣어야함-->
     <script>
         const blogPostList = document.getElementById("blogPostList");
@@ -74,6 +86,8 @@
             commentsBox.appendChild(commentDIV);
             commentInput.value="";
         }
+        const audio = document.getElementById('myAudio');
+            audio.play();
     
 
 

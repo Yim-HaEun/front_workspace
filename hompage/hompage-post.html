@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>블로그 게시글 작성</title>
+        <title>영화 후기-Haeun-log </title>
+        <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
     </head>
     <body>
+        <h2>blog</h2>
+        <p>영화 후기 카테고리 </p>
+        <header>
+            <h2> Movie - log  </h2>
+        </header>
+        <section>
+            <nav>
+                <ul>
+                    
+                    <img src = "IMG_3618.JPG" alt = "프로필" style = "width: 100px; height: 100px;">
+                    
+                    <br>[프로필]
+                    
+                    <audio controls>
+                        <source src="./mp3/just-relax-11157.mp3" type="audio/mpeg">
+                        <br>
+                        
+                    </audio>
+    
+                    <h5> bgm: just-relax-11157.mp3</h5>
+                    
+                    <li>영화 후기</li>
+                    <li>노래 추천</li>
+                    <li>일상 </li>
+                </ul>
+            </nav>
+        <article>
+            <li class="post"><h1>영화 '중경삼림 '후기</h1>
+                <p>왕가위 감독은 미감이 좋아요<br>노래도 좋습니다.<br>
+                별점 : 4.5 </p>
+                <div class = "comment">
+                    <h3>댓글 창</h3>
+                    <input id = "commentInput" placeholder="댓글 달기">
+                    <button onclick = "addComment()">작성</button>
+                    <div id="comments">
+                        <!--댓글이 표시될 장소-->
+            
+                    </div>
+                </div>                
+            </li>
+            
         <h1>게시글 쓰기</h1>
         <textarea id = "blogPost" placeholder="게시글을 작성하세요"></textarea>
         <button id="saveButton">게시글 작성</button>
@@ -29,6 +71,8 @@
                     alert("게시글 내용을 입력하세요.");
                 }   
             });
+        </article>
+       
         </script>
     </body>
 </html>
