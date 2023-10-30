@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>영화 후기 블로그</title>
+    <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
+    
+</head>
+<body>
+    <h2>blog</h2>
+    <p>안녕하세요.여기는 블로그입니다 자기소개 끝 </p>
+    <header>
+        <h2>  Movie - log  </h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                
+                <img src = "IMG_3618.JPG" alt = "프로필" style = "width: 100px; height: 100px;">
+                
+                <br>[프로필]
+
+                <li>영화 추천</li>
+                <li>영화 후기</li>
+                <li>일상 </li>
+            </ul>
+        </nav>
+        <article>
+            <li class="post"><h1>영화 '중경삼림 '후기</h1>
+                <p>왕가위 감독은 미감이 좋아요<br>노래도 좋습니다.<br>
+                별점 : 4.5 </p>
+                <div class = "comment">
+                    <h3>댓글 창</h3>
+                    <input id = "commentInput" placeholder="댓글 달기">
+                    <button onclick = "addComment()">작성</button>
+                    <div id="comments">
+                        <!--댓글이 표시될 장소-->
+            
+                    </div>
+                </div>                
+            </li>
+            <textarea id = "blogPost" placeholder="게시글 쓰기"></textarea>
+            <button id = "saveButton"> 게시글 작성하기 </button>
+            <ul id="blogPostList"></ul>
+        </article>
+        
+        
+    </section> <!--article도 무조건 ! section 안에 넣어야함-->
+    <script>
+        const blogPostList = document.getElementById("blogPostList");
+        const savedPosts = JSON.parse(localStorage.getItem("blogPosts"))||[];
+
+        savedPosts.forEach(post => {
+            const listItem = document.createElement("li");
+            listItem.textContent = post.content;
+            blogPostList.appendChild(listItem);
+        });
+        //게시글 작성 페이지로 이동
+        document.getElementById("createPostButton").addEventListener("click",function(){
+            window.location.herf = "homepage-post.html";
+        });
+
+        function addComment(){
+            const commentInput = document.getElementById("commentInput");
+            const commentText = commentInput.value;
+            if(commentText.trim() ===""){
+                alert("댓글을 작성해주세요");
+                return;
+            }
+            const commentsBox = document.getElementById("comments");
+            const commentDIV = document.createElement("div");
+            commentDIV.className = "comment";
+            commentDIV.textContent= commentText;
+            commentsBox.appendChild(commentDIV);
+            commentInput.value="";
+        }
+    
+
+
+
+
+</script>
+    <footer>
+        <p>회사소개 | 연혁 | 오시는 길 </p>
+    </footer>
+  
+</body>
+
+
+

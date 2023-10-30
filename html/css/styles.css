@@ -42,9 +42,9 @@ h1{
 .form-container{
     margin-top : 20px;
 }
+
 .form-container input[type = "text"],.form-container textarea{
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-
 }
