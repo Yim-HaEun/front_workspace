@@ -128,10 +128,11 @@
             const fruitsResult=document.getElementById("fruitsResult");
             const appleCB = document.getElementById("appleCB");
             const bananaCB = document.getElementById("bananaCB");
-           
+            const orangeCB = document.getElementById("orangeCB");
 
             appleCB.addEventListener("change",updateFruitsResult);
             bananaCB.addEventListener("change",updateFruitsResult);
+            orangeCB.addEventListener("change",updateFruitsResult);
             /*
             updateFruitsResult = change 이벤트가 발생할 때 실행 
             현재 선택된 체크박스를 확인하고 선택된 과일 항목을 배열에 추가한 다음 결과 메세지를 업데이트
@@ -147,6 +148,8 @@
                 */
                 if(bananaCB.checked){
                     selectFruits.push("바나나");
+                }if(orangeCB.checked){
+                    selectFruits.push("오렌지");
                 }
                 fruitsResult.textContent="선택된 과일 : " + selectFruits.join(",");
 
