@@ -50,16 +50,16 @@
 
                 <h5> bgm: just-relax-11157.mp3</h5>
                 
-                <li>여행 기록 </li>
-                <li>영화 후기</li>
-                <li>노래 추천</li>
+                <li><a href="./homepageInformation.html"> main</a> </li>
+                <li><a href="./hompage-post.html">영화 후기</a></li>
+                <li><a href="./homepage-music.html">노래 추천</a></li>
             </ul>
         </nav>
     <article>
-        <h1>여행 사진 모음</h1>
+        <h1>여행 사진첩</h1>
         <div id="pagination">
         <button id="prevPage">이전</button>
-        <div class="img-container">
+        <div class="img-container"><!--이미지 추가 공간-->
 
         </div>
         <button id = "nextPage">다음</button>    
@@ -68,43 +68,20 @@
 
     </section> <!--article도 무조건 ! section 안에 넣어야함-->
     
-    <script>
+    <script src = "./js/app.js">
+        
         
 
 
-        const blogPostList = document.getElementById("blogPostList");
-        const savedPosts = JSON.parse(localStorage.getItem("blogPosts"))||[];
 
-        savedPosts.forEach(post => {
-            const listItem = document.createElement("li");
-            listItem.textContent = post.content;
-            blogPostList.appendChild(listItem);
-        });
-        //게시글 작성 페이지로 이동
-        document.getElementById("createPostButton").addEventListener("click",function(){
-            window.location.herf = "homepage-post.html";
-        });
-
-        function addComment(){
-            const commentInput = document.getElementById("commentInput");
-            const commentText = commentInput.value;
-            if(commentText.trim() ===""){
-                alert("댓글을 작성해주세요");
-                return;
-            }
-            const commentsBox = document.getElementById("comments");
-            const commentDIV = document.createElement("div");
-            commentDIV.className = "comment";
-            commentDIV.textContent= commentText;
-            commentsBox.appendChild(commentDIV);
-            commentInput.value="";
-        }
+    
         const audio = document.getElementById('myAudio');
             audio.play();
     
 </script>
     <footer>
-        <p>  instagram      |     t-story     | </p>
+        <p><a href = "https://www.instagram.com/yim.ha.eun/?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr">instagram</a>
+            <a href = "https://gkdms2710.tistory.com/">t-story</a>  </p>
     </footer>   
   
 </body>

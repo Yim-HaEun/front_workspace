@@ -54,7 +54,7 @@ section::after {  /*정돈 끝났으면 이제 시작할게*/
 }
 footer{
     /* background-color: #220f46;*/
-    background :linear-gradient(45deg,rgb(0, 0, 0),rgb(77, 76, 114)); /*시작할 색상 정하기*/
+    background-color: rgb(98, 119, 126);
     padding : 10px;
     text-align: center;
     color : white;
@@ -66,6 +66,43 @@ footer{
         height: auto;
     }
 
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f3f3;
+}
+#container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+button[type="submit"]{
+background-color: #111111;
+color: #fff;
+border: none;
+padding:10px 20px;
+font-size:  18px;
+cursor: pointer;
+width:150px;
+height:40px;
+}
+.delete-button {
+background-color: #5e5e5e;
+color: #fff;
+border: none;
+padding: 10px;
+cursor: pointer;
+}
+input[type="text"], textarea{ /*질문하기 내용 적는 창*/
+width: 100%;
+padding:  10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin: 5px 0;
 }
 
 

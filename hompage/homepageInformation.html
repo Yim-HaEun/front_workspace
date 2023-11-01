@@ -25,6 +25,7 @@
                 border-radius:50%;
                 width:50px;
                 height:50px;
+    
             }
     </style>
 </head>
@@ -50,52 +51,94 @@
 
                 <h5> bgm: just-relax-11157.mp3</h5>
                 
-                <li>여행 기록 </li>
-                <li>영화 후기</li>
-                <li>노래 추천</li>
+                <li><a href="./homepage-log.html">여행 기록 </a></li>
+                <li><a href="./hompage-post.html">영화 후기</a></li>
+                <li><a href="./homepage-music.html">노래 추천</a></li>
             </ul>
         </nav>
     <article>
+        <h2>무엇이든 물어보세요</h2>
+        <div id="posts">
+            <!-- 게시물 추가하는 공간-->
+        </div>
+        
+        <form id="postQ">
+            <label for="question">궁금한걸 물어보세요! : </label>
+            <br>
+            <input type="text" id = "question" name ="question" required>
+            <br>
+            <button type = "submit">질문하기</button>    
+        </form>
+    </article>
        
     </section> <!--article도 무조건 ! section 안에 넣어야함-->
     
     <script>
+        const postQ = document.getElementById("postQ");
+        const posts = document.getElementById("posts");
+        const postArray=[];//게시물 저장하는 배열
         
+        postQ.addEventListener("submit",function(event){
+            event.preventDefault();
+            const question=postQ.question.value;
+            const date = new Date();
+            const post={
+                question,
+                date,
+                comments:[],
+            };
+            postArray.push(post);
 
+            //새 게시물을 담아줄 div 생성
+            const postDiv=document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.innerHTML=`
+            <h3>${question}</h3>
+            <p>게시일 : ${date.toLocaleString()}</p>
+            `;
 
-        const blogPostList = document.getElementById("blogPostList");
-        const savedPosts = JSON.parse(localStorage.getItem("blogPosts"))||[];
+            //삭제 버튼 생성
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-button");
+            deleteButton.innerHTML = "삭제하기";
+            deleteButton.addEventListener("click",() =>{
+                postArray.splice(postArray.indexOf(post),1);
+                posts.removeChild(postDiv);
+            });
+            
+            //답변하기
+            const commentForm = document.createElement("form");
+            commentForm.innerHTML=`
+            <input type="text" name="comment" placeholder="답변">
+            <button type="submit">답변하기</button>
+            `;
 
-        savedPosts.forEach(post => {
-            const listItem = document.createElement("li");
-            listItem.textContent = post.content;
-            blogPostList.appendChild(listItem);
-        });
-        //게시글 작성 페이지로 이동
-        document.getElementById("createPostButton").addEventListener("click",function(){
-            window.location.herf = "homepage-post.html";
-        });
-
-        function addComment(){
-            const commentInput = document.getElementById("commentInput");
-            const commentText = commentInput.value;
-            if(commentText.trim() ===""){
-                alert("댓글을 작성해주세요");
-                return;
-            }
-            const commentsBox = document.getElementById("comments");
-            const commentDIV = document.createElement("div");
-            commentDIV.className = "comment";
-            commentDIV.textContent= commentText;
-            commentsBox.appendChild(commentDIV);
-            commentInput.value="";
-        }
-        const audio = document.getElementById('myAudio');
-            audio.play();
-    window.location.href = "blog-pagination.html";
+            commentForm.addEventListener("submit",function(event){
+                event.preventDefault();
+                const commentText = commentForm.comment.value;
+                const comment = {
+                    text: commentText,
+                    date:new Date(),
+                };
+                post.comments.push(comment);
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment");
+                commentDiv.innerHTML=`
+                    <p>${commentText}</p>
+                    <p>게시일 : ${comment.date.toLocaleString()}</p>
+                `;
+                commentForm.comment.value="";
+                postDiv.appendChild(commentDiv);
+            });
+            postDiv.appendChild(deleteButton);
+            postDiv.appendChild(commentForm);
+            
+            posts.appendChild(postDiv);
+        })
     </script>
         <footer>
-            <p> instagram       |      t-story      | </p>
+            <p><a href = "https://www.instagram.com/yim.ha.eun/?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr">instagram</a>
+                <a href = "https://gkdms2710.tistory.com/">t-story</a>  </p>
         </footer>
     
     </body>
