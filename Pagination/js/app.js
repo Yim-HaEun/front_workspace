@@ -31,7 +31,7 @@ function displayImg(page){//이미지 표시 함수의 시작
                                                             //pageImages배열에 저장 이 배열은 현재 페이지에 표시될 이미지들을 담고있음
     imageContainer.innerHTML='';//이미지를 표시해줄 컨테이너 초기화
     
-    pageImages.forEach(images =>{//배열에 있는 이미지들을 반복해서 처리
+    pageImages.forEach(images=>{//배열에 있는 이미지들을 반복해서 처리
         const imgElement = document.createElement('img'); //각 이미지를 표시하기위한 <img>태그 요소를 생성
         imgElement.src = images;//<img>태그에 src 속성을 images(현재 이미지의 파일 경로)로 설정
         imgElement.classList.add('image'); //<img>태그에 image클래스를 추가해서 추후 이미지 스타일을 적용할 예정

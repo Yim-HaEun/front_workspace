@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Haeun-log</title>
+    <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
+    <style>
+        audio{
+            display:block;
+            float : left;
+            margin-left: 450px;
+            max-width: 1000px;
+            max-height: 20px;
+            border:2px solid #fff;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            
+            }
+            audio::-webkit-media-controls-panel{
+                background-color: #fff;
+                border-radius: none;
+            }
+            audio::-webkit-media-controls-play-button{
+                background-color: #fff;
+                border:2px solid #f08080;
+                border-radius:50%;
+                width:50px;
+                height:50px;
+    
+            }
+    </style>
+</head>
+<body>
+    <h2>blog</h2>
+    <p>노래추천 카테고리입니다. </p>
+    <header>
+        <img src= "./img/pink.PNG" style="height: 40px; padding-right: 40px; padding-top: 20px;">
+        <img src="./img/rib1.PNG" style="width: 150px; ">
+        <img src= "./img/pink.PNG" style="height: 40px; padding-left: 40px; padding-top: 20px;">
+        <h2 style="padding-bottom: 20px;"><img src= "./img/pink.PNG" style="height: 40px; padding-right: 40px; padding-top: 20px;"><img src= "./img/cake.PNG" style="height: 100px; padding-right: 40px;"></img>  Music - log  <img src= "./img/creamsoda.PNG" style="height: 130px; padding-left: 50px;">
+            <img src= "./img/greenJelly.PNG" style="height: 60px; "><img src= "./img/pink.PNG" style="height: 40px; padding-left: 40px; padding-top: 20px;"></h2><img src= "./img/pink.PNG" style="height: 40px; padding-right: 40px; padding-top: 20px;">
+        <img src="./img/hkd.png" style="width: 110px;"> <img src="./img/kitty.png" style="width: 100px;">
+        <img src="./img/hkd1.png" style="width: 100px;">
+        <img src="./img/hkd2.png" style="width: 160px;">
+        <img src="./img/hkd3.png" style="width: 110px;">
+        <img src="./img/hkd4 (4).png" style="width: 145px;">
+        <img src="./img/hkd5.png" style="width: 135px;"><img src= "./img/pink.PNG" style="height: 40px; padding-left: 40px; padding-top: 20px;">
+        <img src="./img/tamago.PNG" style ="width: 60px; float:right">
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                [프로필]<br><br>
+              <img src = "./img/patrickStar.JPG" alt = "프로필" style = "width: 180px; height: 180px; border-radius: 10px;border:2px solid rgb(231, 210, 219)">
+                
+                
+                
+                
+
+                <br><br><br><br>
+                <button><a href="./homepageInformation.html">main</a></button><br>
+                <button><a href="./homepage-log.html">여행 기록 </a></button><br>
+                <button><a href="./hompage-post.html">영화 후기</a></button>
+                
+            </ul>
+        </nav>
+    <article >
+        <li class="post"><h1>Travis Scott 의 NEW Album</h1>
+            <img src = >
+            <p>travis scott의 앨범을 추천합니다.<br>제가 이 앨범에서 추천할 노래들은<br></p>
+            <audio controls >
+                <source src="./mp3/just-relax-11157.mp3" type="audio/mpeg">
+                
+    
+            </audio>
+            <br>
+            <h5>Travis Scott - My Eyes</h5>
+            <div class = "comment">
+                <br><br><h3>댓글</h3>
+                <input id = "commentInput" placeholder="댓글 달기">
+                <button onclick = "addComment()">작성</button>
+                <div id="comments">
+                    <!--댓글이 표시될 장소-->
+        
+                </div>
+            </div>                
+        </li>
+        <h1>게시글 쓰기</h1>
+        <textarea id = "blogPost" placeholder="게시글을 작성하세요"></textarea>
+        <button id="saveButton">게시글 작성</button>
+
+    </article>
+       
+    </section> <!--article도 무조건 ! section 안에 넣어야함-->
+    
+    <script>
+        const postQ = document.getElementById("postQ");
+        const posts = document.getElementById("posts");
+        const postArray=[];//게시물 저장하는 배열
+        
+        postQ.addEventListener("submit",function(event){
+            event.preventDefault();
+            const question=postQ.question.value;
+            const date = new Date();
+            const post={
+                question,
+                date,
+                comments:[],
+            };
+            postArray.push(post);
+
+            //새 게시물을 담아줄 div 생성
+            const postDiv=document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.innerHTML=`
+            <h3>${question}</h3>
+            <p>게시일 : ${date.toLocaleString()}</p>
+            `;
+
+            //삭제 버튼 생성
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-button");
+            deleteButton.innerHTML = "삭제하기";
+            deleteButton.addEventListener("click",() =>{
+                postArray.splice(postArray.indexOf(post),1);
+                posts.removeChild(postDiv);
+            });
+            
+            //답변하기
+            const commentForm = document.createElement("form");
+            commentForm.innerHTML=`
+            <input type="text" name="comment" placeholder="답변">
+            <button type="submit">답변하기</button>
+            `;
+
+            commentForm.addEventListener("submit",function(event){
+                event.preventDefault();
+                const commentText = commentForm.comment.value;
+                const comment = {
+                    text: commentText,
+                    date:new Date(),
+                };
+                post.comments.push(comment);
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment");
+                commentDiv.innerHTML=`
+                    <p>${commentText}</p>
+                    <p>게시일 : ${comment.date.toLocaleString()}</p>
+                `;
+                commentForm.comment.value="";
+                postDiv.appendChild(commentDiv);
+            });
+            postDiv.appendChild(deleteButton);
+            postDiv.appendChild(commentForm);
+            
+            posts.appendChild(postDiv);
+        })
+    </script>
+        <footer style="border-radius: 20px; margin-top: 25px;">
+            <p> <a href = "https://www.instagram.com/yim.ha.eun/?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr">instagram</a>
+                <a href = "https://gkdms2710.tistory.com/" style="padding-left: 20px;">t-story</a>
+                <a href = "https://m.blog.naver.com/gkdms2710" style="padding-left: 20px;">blog</a>
+        </footer>
+    
+    </body>
+
+
+
