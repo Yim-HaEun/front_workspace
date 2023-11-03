@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>타이머 역카운터</title>
+    </head>
+    <body>
+        <div id="count"></div>
+        <script>
+            //초기숫자 설정
+            //만약에 시작 숫자를 5로 설정하고 싶으면 5로 설정
+            var startCount =5;
+
+            function countDown(){
+                var cDown = document.getElementById("count");
+                cDown.innerHTML=startCount; //현재숫자를 표시
+                startCount--; 
+                if(startCount >=0) {//0이상일 경우
+                    setTimeout(countDown,1000);//현재 숫자를 1로 감소 1000 = 1초
+                }
+            }
+            countDown();
+           
+        </script>
+    </body>
+</html>
