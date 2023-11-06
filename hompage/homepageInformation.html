@@ -60,12 +60,11 @@
                     
                     
                 </audio>
-
-                
+ 
                 <br><br><br><br>
-                <button><a href="./homepage-log.html">여행 기록 </a></button><br>
+                <button ><br>여행기록 </a></button><br>
                 <button><a href="./hompage-post.html">영화 후기</a></button><br>
-                <button><a href="./homepage-music.html">노래 추천</a></button>
+                <buttontype="button"><img src="./img/Old_cd.png" alt="" style="width: 60px;"><a href="./homepage-log.html"><a href="./homepage-music.html"><br>MY Playlist</a></button>
             </ul>
         </nav>
     <article>
@@ -80,7 +79,8 @@
             <br>
             <input type="text" id = "question" name ="question" required>
             <br>
-            <button type = "submit">질문하기</button> 
+            <button type = "submit">질문하기</button>
+            <ul id="blogPostList"></ul> 
             <div id = "pagination">
                 <h2 id ="currentPage">페이지 1</h2>
                 <button id ="prevPage">이전</button>
@@ -175,6 +175,9 @@
             
             posts.appendChild(postDiv);
         });
+        createPostButton.addEventListener("click",function(){
+                window.location.href="blog-post.html";
+            });
         //이전버튼 클릭 이벤트
         document.getElementById("prevPage").addEventListener("click",function(){
             if(currnetPage>1){

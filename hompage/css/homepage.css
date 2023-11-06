@@ -55,11 +55,13 @@ nav ul button{
     
 
 } 
+/*
 button:hover{
     background-color: rgb(231, 210, 219);
     box-shadow: 2px 2px 5px rgba(70, 41, 68, 0.5);
 
 }
+*/
 
 article{
     float: left;

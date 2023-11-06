@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Haeun-log</title>
+    <script src="./js/jquery-3.7.1.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
     <style>
         audio{
@@ -28,6 +29,14 @@
                 height:50px;
     
             }
+        #imageSlider{
+            width: 1000px;
+            height: 500px;
+            overflow: hidden;
+            position: absolute;
+        }
+       
+   
     </style>
 </head>
 <body>
@@ -66,9 +75,30 @@
             </ul>
         </nav>
     <article >
-        <li class="post"><h1>Travis Scott 의 NEW Album</h1>
-            <img src = >
-            <p>travis scott의 앨범을 추천합니다.<br>제가 이 앨범에서 추천할 노래들은<br></p>
+        <li class="post" style="padding-bottom: 100px;"><h1>Travis Scott <br></h1>
+            
+        <div id = "imageSlider" style="padding-bottom: 10%; float: center;"> <!--이미지 넘기기-->
+            <img id ="album" src="./img/TravisAstro.jpg " style="width: 250px; height: 250px; position:absolute; border-radius: 10px; box-shadow: 5px 10px 2px 1px rgb(150, 150, 150);">
+            <img id= "album1" src="./img/TravisScott.jpg" style="width: 250px; height: 250px; position: absolute; border-radius: 10px; box-shadow: 5px 10px 2px 1px rgba(150, 150, 150);">
+            <img id ="album2" src="./img/TravisTenet.jpg" style="width: 250px; height: 250px; position: absolute; border-radius: 10px; box-shadow: 5px 10px 2px 1px rgba(150, 150, 150);">
+            <img id ="album3" src="./img/TarvisSkywalker.jpg" style="width: 250px; height: 250px; position:absolute; border-radius: 10px; box-shadow: 5px 10px 2px 1px rgba(150, 150, 150);">
+            <script>
+                $(function(){
+                    let currentNumber=0;
+                    let albums=$("#album, #album1, #album2, #album3");
+                    albums.hide();
+                    albums.eq(currentNumber).show();
+                    function nextAlbum(){
+                        albums.eq(currentNumber).fadeOut(2000);
+                        currentNumber=(currentNumber+1)%albums.length;
+                        albums.eq(currentNumber).fadeIn(2000);
+                    } 
+                    setInterval(nextAlbum,3500);
+                });
+            </script>
+        </div>
+        
+            <p style="padding-top: 400px;">travis scott의 노래들을 추천합니다.<br></p>
             <br>
             <img src="./img/TravisScott.jpg" style="width :200px; height: 200px; padding-bottom: 20px;"><br>
             <audio controls >
@@ -97,6 +127,8 @@
     </section> <!--article도 무조건 ! section 안에 넣어야함-->
     
     <script>
+        
+        
         const postQ = document.getElementById("postQ");
         const posts = document.getElementById("posts");
         const postArray=[];//게시물 저장하는 배열
@@ -157,7 +189,7 @@
             postDiv.appendChild(commentForm);
             
             posts.appendChild(postDiv);
-        })
+        });
     </script>
         <footer style="border-radius: 20px; margin-top: 25px;">
             <p> <a href = "https://www.instagram.com/yim.ha.eun/?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr">instagram</a>
