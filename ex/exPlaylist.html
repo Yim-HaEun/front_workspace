@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>샤이니 뮤직 내 플리</title>
+        <link rel="stylesheet" type="text/css" href="./css/playlist.css">
+        <style>
+            
+            .pageColor{
+                width: 600px;
+                height: 700px;
+                margin: 0 auto;
+                margin-top: 5%;
+                border: 2px solid rgb(255, 255, 255);
+                box-shadow: 2px 2px  rgb(0, 0, 0);
+                background-color: rgb(175, 174, 174);
+            }
+            
+            
+            input{
+                border: 1.5px solid gray;
+            }
+            button{
+                height: 26px;
+            }
+            input{
+                height: 26px;
+            }
+            .pawnTab{
+                width: 600px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <div class="pageColor">
+            <p id="bluetop"><img src = "./img/Old_cd.png" style = "width: 25px;"><strong>My PlayList</strong> 
+            
+            <div id="createAccount">
+                <div id="divid">
+                    <label for="id">
+                        <img src="./img/oldicon/user.png" style="width: 28px;height: 26px; margin-bottom: -8px;">
+                    </label>
+                    <input id="id" type="text" placeholder="아이디">
+                    <button id="idButton">아이디 중복 확인</button>
+                </div>
+                <br>
+                <form onsubmit="return submitPassword()">
+                    <div>
+                    
+                        <label for="pw">
+                            <img src="./img/oldicon/password.png" style="width: 28px; height: 26px; margin-bottom: -8px;">
+                        </label>
+                        <input id="pw" type="password" placeholder="비밀번호">
+                        <p id="pm" style="color: red;"></p>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="checkpw">
+                            <img src="./img/oldicon/passwordcheck.png" style="width: 26px; height: 26px; margin-bottom: -8px;">
+                        </label>
+                        <input id="checkpw" type="password" placeholder="비밀번호 확인">
+                        <input type="submit" value="비밀번호 확인">
+                        <p id="checkpm" style="color: red;"></p>
+                    </div>
+                </form>
+              
+
+            
+        </div>
+       
+        <script>
+          
+
+            
+        </script>
+    </body>
+</html>

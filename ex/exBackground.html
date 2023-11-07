@@ -1,85 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>여행 기록 Haeun-log</title>
-    <link rel = "stylesheet" type = "text/css" href = "./css/homepage.css">
-    <link rel ="stylesheet"  href="./css/img.css">
+    <title>MY Playlist</title>
+    <link rel = "stylesheet"  type = "text/css" href ="./css/playlist.css">
+    <link rel="stylesheet" href="https://unpkg.com/98.css" >
+    <!--link rel ="stylesheet"  href="./css/img.css"-->
     <style>
-        header {
-    margin-left: 10%;
-    background : linear-gradient(to bottom, white 30%,lightCyan 40%,skyBlue 50%,deepskyblue 70%,  rgb(12, 188, 247) 80%);
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 35px;
-    max-width: 1500px;
-    height: 1000px;
-   
-
-    font-family:'PyeongChangPeace-Bold';
-    
-
-}
     </style>
 </head>
 <body>
-    <h2>blog</h2>
-    <p>안녕하세요.여기는 하은의 여행기록 카테고리입니다. </p>
-    <header>
-       
+    <header>     
     </header>
 
     <section>
         <nav>
             <ul>
-                [프로필]<br><br>
-              <img src = "./img/patrickStar.JPG" alt = "프로필" style = "width: 180px; height: 180px; border-radius: 10px; border:2px solid rgb(231, 210, 219); ">
-                
-                
-                
-                <audio controls>
-                    <source src="./mp3/just-relax-11157.mp3" type="audio/mpeg">
-                    <br>
-                    
-                </audio>
-
-                <br><br><br><br>
                 <button><a href="./homepageInformation.html"> main</a> </button><br>
                 <button><a href="./hompage-post.html">영화 후기</a></button><br>
                 <button><a href="./homepage-music.html">노래 추천</a></button>
             </ul>
         </nav>
     <article>
-        <div id = "P">
-        <h2 id ="currentPage">페이지 1</h2>
-            <h1>여행 사진첩</h1>
-            <div id="pagination">
-                <button id="prevPage">이전</button>
-                <div class="img-container">
-                    <!--이미지 추가 공간-->
-                
-                </div>
-                <button id = "nextPage">다음</button>    
-            </div>
-            <button id = "prevPage">이전글</button>
-            <button id = "nextPage">다음글</button>
+            <h4 style="width:1000px;
+            height: 28px;
+            background-color:blue; 
+            color :whitesmoke; 
+            margin: 0 auto;
+            border:2px outset grey;"><img src="./img/Old_cd.png" style="height: 25px; padding-right: 10px;"> Playlist</h4>
+       
+    
+    
+        <div id = "Playlist_page">
+           
+        
+        <img src = "./img/patrickStar.JPG" alt = "playlist_cover" style = "width: 120px; height: 120px; border-radius: 2px; border:2px outset rgb(160, 160, 160); margin-left: 20%; margin-top: 20px;">
+           
+        
         </div>
 
     </article>
-
     </section> <!--article도 무조건 ! section 안에 넣어야함-->
-    
-    <script src = "./js/app.js">
-        
-        const audio = document.getElementById('myAudio');
-            audio.play();
-    </script>
-        <footer style="border-radius: 20px; margin-top: 25px;">
-            <p><a href = "https://www.instagram.com/yim.ha.eun/?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr">instagram</a>
-                <a href = "https://gkdms2710.tistory.com/" style="padding-left: 20px;">t-story</a>
-                <a href = "https://m.blog.naver.com/gkdms2710" style="padding-left: 20px;">blog</a></p>
-        </footer>   
+         
   
-    </body>
+</body>
 </html>
 

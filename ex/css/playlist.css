@@ -1,0 +1,24 @@
+
+body {
+    
+    background: linear-gradient(white 20%,lightCyan 30%, skyBlue 50%, deepSkyBlue 80% ) ;
+    height: 1080px;
+}
+.Playlist_page{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 35px;
+    max-width: 1500px;
+    height: 1000px;
+    
+}
+#bluetop {
+    background-color: blue;
+    color: white;
+    width: 592px;
+    height: 30px;
+    padding-left: 10px;
+    margin-top: 0%;
+    
+}
+
