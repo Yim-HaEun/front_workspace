@@ -30,6 +30,7 @@
                 </div>
                 <div style="width:1200px; height:30px; background-color: gray;">
                 <button id="new"><a href="./createPlaylist.html">NEW</a></button>
+                <ul id = "List"></ul>
                 </div>
                 <article id="articleP">
                     <div style="text-align: center; margin-top: 0%;">
@@ -42,5 +43,19 @@
                 </article>
             </section>
         </div><!--container-->
+        <script>
+            const List = document.getElementById("List");
+            const savedPosts = JSON.parse(localStorage.getItem("CreateLists"))||[];
+
+            savePosts.forEach(post =>{
+                const listItem = document.createElement("li");
+                listItem.textContent = post.content;
+                List.appendChild(listItem);
+            });
+
+            document.getElementById("createPostButton").addEventListener("click",function(){
+                window.location.href="createPlaylist.html";
+            })
+        </script>
     </body>
 </html>
