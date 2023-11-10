@@ -29,33 +29,39 @@
                     <p style="margin-top:5px;" ><img src="./img/Old_cd.png" style="height: 28px; float: left; margin-top: -8px; "><strong>My_PlayList</strong></p>
                 </div>
                 <div style="width:1200px; height:30px; background-color: gray;">
-                <button id="new"><a href="./createPlaylist.html">NEW</a></button>
-                <ul id = "List"></ul>
-                </div>
+                <button id="new">NEW</button>
+                
+                
+            </div>
                 <article id="articleP">
                     <div style="text-align: center; margin-top: 0%;">
                         <!--내용작성-->
+                        <ul id = "List"></ul>
                     </div>
-                <article id="articleL">
+                <!--<article id="articleL">
                     <div style="text-align: center; margin-top: 20%;">
-                        <!--내용작성-->
-                    </div>
+                        
+                    </div>-->
                 </article>
+            
             </section>
         </div><!--container-->
+        
         <script>
             const List = document.getElementById("List");
-            const savedPosts = JSON.parse(localStorage.getItem("CreateLists"))||[];
+            const savedPosts = JSON.parse(localStorage.getItem("ListPosts")) || [];
 
-            savePosts.forEach(post =>{
+            savedPosts.forEach(post => {
                 const listItem = document.createElement("li");
                 listItem.textContent = post.content;
                 List.appendChild(listItem);
+  
             });
+            
 
-            document.getElementById("createPostButton").addEventListener("click",function(){
+            document.getElementById("new").addEventListener("click",function(){
                 window.location.href="createPlaylist.html";
-            })
+            });
         </script>
     </body>
 </html>

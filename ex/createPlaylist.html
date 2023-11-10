@@ -32,14 +32,16 @@
                 <div style="width:1200px; height:30px; background-color: gray;">
                 <button id="backToList"><a href="./exPlaylist.html">Back To PlayList</a></button>
                 
-                
                 </div>
                 <article id="create">
+                    
                     <div style="text-align: center; margin-top: 5%;">
-                        <!--이미지, 이름 설정 생성버튼-->
                         <label for = "pl_name" style="font-size: 20px;">PlayList_Name : </label> 
-                        <input type = "text" id = "pl_Name">
-                        <br><br><br>
+                        <textarea id="ListPost" placeholder="플레이리스트 이름 생성" style="width:350px;"></textarea>
+                        
+                        <!--이미지, 이름 설정 생성버튼-->
+                        <br><br><br><br><br>
+                        <p style="text-align: center;">플레이리스트 대표사진 </p>
                         
                         <div id="imageContainer" >
                             <!--이미지 표시할 컨테이너-->
@@ -48,7 +50,7 @@
                         <input type="file" id="fileInput" accept="image/*">
                         <button id = "uploadButton">사진 업로드</button>
                         <br>
-                        <button type="saveButton" value="생성하기" style="margin-top: 25%;"></button>
+                        <button id="saveButton" style="margin-top: 20%;">생성하기</button>  
                     </div>
                 </article>
             </section>
@@ -71,21 +73,26 @@
                 }else{
                     alert("이미지 파일을 선택하세요");
                 }
-            })
-            document.getElementById("saveButton").addEventListener("click",function(){
+            });            
+            document.getElementById("saveButton").addEventListener("click", function(){
                 const playlistContent = document.getElementById("ListPost").value;
-                if(playlistContent.trim() !==""{
+                if(playlistContent.trim() !==""){
                     const timestamp=new Date().getTime();
-                    const blogPost ={
+                    const ListPost ={
                         id: timestamp,
                         content: playlistContent
                     };
-                    const savedPosts = JSON.parse(localStorage.getItem(""))
+                    const savedPosts = JSON.parse(localStorage.getItem("ListPosts"))||[];
                     savedPosts.push(ListPost);
+                    localStorage.setItem("ListPosts", JSON.stringify(savedPosts));
 
-                })
-            })
+                    alert("플레이리스트가 생성되었습니다.");
+
+                    window.location.href="exPlaylist.html";
+                }else{
+                    alert("플레이리스트 내용을 다시 입력해주세요.");
+                }
+            });
         </script>
     </body>
-
 </html>
